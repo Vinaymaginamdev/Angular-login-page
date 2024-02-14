@@ -1,0 +1,70 @@
+<div  class="image-style">
+<img src="/assets/images/download.png" style="float: left;width: 7%;height: 7%;padding-bottom: 30%;" />
+</div>
+<div class="container">
+<mat-card class="z-depth center" flex="50" >
+  <mat-card-content>
+    <!-- <div class="header">
+      <P>Sign Into Your Account </P>
+    </div> -->
+    <div fxLayout="row">
+      <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+
+        <div class="emailInput">
+
+          <mat-form-field class="full-width" appearance="outline" style="float: left;width: 40%;padding-right:30px ;">
+            <mat-label>User ID</mat-label>
+
+            <input
+              formControlName="email"
+              matInput
+              placeholder="Enter User ID" required
+            />
+            <mat-error *ngIf="!loginForm.controls['email'].valid">
+                User ID is required
+              </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div>
+          <!-- <span>
+            <a class="text-link" class="aLink" routerLink="/auth/forgot-password">Forgot Password?</a>
+          </span> -->
+          <div style="float: left;padding-bottom: 5%;">
+</div>
+          <mat-form-field class="full-width" appearance="outline" style="float: clear;width: 40%;">
+            
+            <mat-label>Password</mat-label>
+
+            <!-- <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required /> -->
+            <input formControlName="password" matInput [type]=" hide ? 'text' : 'password'" required />
+
+            <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+        </button>
+        <mat-error *ngIf="!loginForm.controls['password'].valid">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <!-- <mat-checkbox style="position:relative;right:35%;">Remember User ID</mat-checkbox> -->
+        <div style="position:relative;right:35%;padding-bottom: 5%;">
+        <input class="contests" type="checkbox" id="pass" name="pass" value="Password" class="defaultCheckbox">
+        <label for="pass" style="padding-left: 1ch;">Remember User ID</label><br>
+        </div>
+      </div>
+    <button mat-flat-button  style="width: 50%;background-color: #056dae;color: white;">Sign On</button>
+     
+      </form>
+  <p style="padding-top: 8%;float: left;"><a href="" target="_blank" style="color:#056dae">Register</a> / <a href="" target="_blank" style="color:#056dae">Activate</a></p>
+  <p style="padding-top: 8%;float: right;">Forgot<a href="" target="_blank" style="color:#056dae"> User ID</a> or <a href="" target="_blank" style="color:#056dae">Password</a></p>
+    
+</div>
+    <!-- <div class="button-row">
+      <p>Create New Account</p>
+    </div> -->
+  </mat-card-content>
+</mat-card>
+</div>
